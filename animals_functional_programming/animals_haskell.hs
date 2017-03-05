@@ -1,4 +1,4 @@
--- написно от Аспарух Кожухаров гр 4 81219
+
 import System.IO
 -- definition of the animals that are going to be used in displayAnimals
 type Animal = (String,String)
