@@ -1,6 +1,6 @@
 #lang racket
 
-(struct animal (name attributes))  ;
+(struct animal (name attributes)) 
 
 (define dog (animal "Dog" (list "mammal" "domestic" "long tail" "bau bau")))
 (define cat (animal "Cat" (list  "meow and purr" "domestic" "long tail" "mammal")))
@@ -14,7 +14,7 @@
 (define salamander (animal "Salamander" (list "amphibians" "wild" "long tail" "slender body")))
 (define frog (animal "Frog" (list "amphibians" "wild" "jump high" "amazing sense of hearing")))
 
-(define initial-animals (list dog cat hamster rabbit tiger wolf owl eagle parrot salamander frog)) ;Аспарух
+(define initial-animals (list dog cat hamster rabbit tiger wolf owl eagle parrot salamander frog))
 
 (define (filter-by-attributes attribute answer animals) ;
     (filter (λ (animal)
@@ -39,7 +39,7 @@
 ) 
 
 (define (add-new-animal all-animals current) ;
-  (printf "Can you please tell me what is your animal name?\n")
+  (printf "Can you please tell me what is your animal?\n")
   (let ([name (read)])
     (printf "What is an identifying charachetistic?\n")
      (let* ([attribute (format "~s" (read))]
@@ -82,7 +82,8 @@
          )
   )
 
-(printf "Welcome to Asparuh's Guess the Animal Game!You can choose from cat,dog,hamster,rabbit,tiger,wolf,owl,eagle,parrot,salamander,frog or maybe you would surprise me with a new animal.. Well,let's find out!\n")
+(printf "Welcome to Asparuh's Guess the Animal Game!You can choose from cat,dog,hamster,rabbit,tiger,wolf,owl,eagle,parrot,salamander,frog,
+ or maybe you would surprise me with a new animal.. Well,let's find out!\n")
 (guess-the-animal initial-animals initial-animals (get-all-attributes initial-animals) null)
 
 
