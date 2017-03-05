@@ -1,9 +1,9 @@
 
 #include <math.h>
 #include <GL/glfw.h>
-#define nL 21 /// брой точки в крайниците
-#define nH 50 /// четен брой точки в главата
-#define nJ 16 /// четен брой точки в ставите
+#define nL 21
+#define nH 50
+#define nJ 16
 #define PI 3.141592653589793
 #define EPS 0.1
 #define turnForward(a) glRotatef((a),1,0,0)
@@ -90,7 +90,7 @@ void drawLimb( float from, float span, float width, float sx1, float sy1, float 
             }
             glEnd( );
         }
-        glTranslatef(0,0,sz); /// преместваме се в края на крайника
+        glTranslatef(0,0,sz);
 }
 void drawJoint( float r )
 {
@@ -138,15 +138,15 @@ void drawLeg(float angle[])
 {
     glPushMatrix();
     drawJoint(0.5);
-    turnForward(angle[0]); // завъртане на крака
+    turnForward(angle[0]);
     turnSideway(angle[1]);
     drawLimb (-90,230,0.3, 0.9,1, 0.7,1, 3);
     drawJoint(0.3);
-    turnForward(angle[2]); // завъртане на коляното
+    turnForward(angle[2]);
     drawLimb (-90,300,0.2, 0.5,0.7, 0.4,0.5, 3);
     drawJoint(0.2);
     glTranslatef(0,0,0.3);
-    turnForward(90); // завъртане на ходилото
+    turnForward(90);
     turnForward(angle[3]);
     glTranslatef(0,0,-0.4);
     drawLimb (-90,420,0.1, 0.6,0.5, 0.9,0.2, 1.5);
@@ -156,15 +156,15 @@ void drawHand(float angle[])
 {
     glPushMatrix();
     drawJoint(0.3);
-    turnSideway(angle[0]); // завъртане в рамото
+    turnSideway(angle[0]);
     turnForward(angle[1]);
     turnAround(angle[2]);
     drawLimb (-90,200,0.4, 0.5,0.6, 0.9,0.7, 2.5);
     drawJoint(0.25);
-    turnForward(angle[3]); // завъртане в лакътя
+    turnForward(angle[3]);
     drawLimb (-90,180,0.2, 0.5,0.5, 0.4,0.3, 2);
     drawJoint(0.15);
-    turnForward(angle[4]); // завъртане в китката
+    turnForward(angle[4]);
     turnSideway(angle[5]);
     turnAround(angle[6]);
     drawLimb (-90,180,0.3, 0.4,0.3, 0.6,0.1, 0.9);
@@ -173,17 +173,17 @@ void drawHand(float angle[])
 void drawBody(float pos[], float ori[], float scale[], float waist[], float head[], float leftHand[], float rightHand[], float leftLeg[], float rightLeg[])
 {
     glPushMatrix();
-    glTranslatef(pos[0],pos[1],pos[2]); // позиция на тялото
-    turnAround(ori[0]); // ориентация на тялото
+    glTranslatef(pos[0],pos[1],pos[2]);
+    turnAround(ori[0]);
     turnForward(ori[1]);
 
-    glScalef(scale[0],scale[1],scale[2]); // размер на тялото
+    glScalef(scale[0],scale[1],scale[2]);
 
     glPushMatrix();
-    glTranslatef(0,-0.1,-0.3); // таз
+    glTranslatef(0,-0.1,-0.3);
     drawLimb(-120,30,0.9, 2,1.5, 0.7,0.4, 1.5);
     drawJoint(0.2);
-    turnForward(waist[0]); // завъртане в кръста
+    turnForward(waist[0]);
     turnAround(waist[1]);
     drawLimb(-130,150,0.4, 1.2,1, 1.9,0.9, 3.0, true);
 
@@ -191,12 +191,12 @@ void drawBody(float pos[], float ori[], float scale[], float waist[], float head
     glTranslatef(0,0,-0.5);
     turnForward(180);
     glTranslatef(-1.1,0,0);
-    drawHand(leftHand); // лява ръка
+    drawHand(leftHand);
     glTranslatef(2.2,0,0);
-    drawHand(rightHand); // дясна ръка
+    drawHand(rightHand);
     glPopMatrix();
 
-    turnAround(head[0]+180); // завъртане във врата
+    turnAround(head[0]+180);
     turnForward(head[1]);
     turnSideway(head[2]);
     glTranslatef(0,-0.3,0.85);
@@ -207,9 +207,9 @@ void drawBody(float pos[], float ori[], float scale[], float waist[], float head
 
     turnForward(180);
     glTranslatef(0.7,0,0);
-    drawLeg(rightLeg); // десен крак
+    drawLeg(rightLeg);
     glTranslatef(-1.4,0,0);
-    drawLeg(leftLeg); // ляв крак
+    drawLeg(leftLeg);
     glPopMatrix();
 }
 
@@ -284,7 +284,7 @@ void drawSmoothCylinder ( float x, float y, float z, float r, float h )
         float dx2 = r*cos(alpha+dalpha);
         float dy2 = r*sin(alpha+dalpha);
 
-        /// Рисуване на околна стена
+
         glBegin( GL_POLYGON );
             glNormal3f( cos(alpha), sin(alpha), 0 );
             glVertex3f( x+dx1, y+dy1, z+h );
@@ -294,7 +294,7 @@ void drawSmoothCylinder ( float x, float y, float z, float r, float h )
             glVertex3f( x+dx2, y+dy2, z+h );
         glEnd();
 
-        /// Рисуване на парче от долната основа
+
         glBegin( GL_POLYGON );
             glNormal3f( 0, 0, -1 );
             glVertex3f( x,     y,     z );
@@ -302,7 +302,7 @@ void drawSmoothCylinder ( float x, float y, float z, float r, float h )
             glVertex3f( x+dx2, y+dy2, z );
         glEnd();
 
-        /// Рисуване на парче от горната основа
+
         glBegin( GL_POLYGON );
             glNormal3f( 0, 0, 1 );
             glVertex3f( x,     y,     z+h );
@@ -412,7 +412,7 @@ void drawFire ( float x, float y, float z, float r, float h )
         float cosbeta = h/sqrt(h*h+r*r);
         float sinbeta = r/sqrt(h*h+r*r);
 
-        /// Рисуване на околна стена
+
         glBegin( GL_POLYGON );
             glNormal3f( cos(alpha)*cosbeta, sin(alpha)*cosbeta, sinbeta );
             glColor3ub(255,0,0);
@@ -427,7 +427,7 @@ void drawFire ( float x, float y, float z, float r, float h )
             glVertex3f( x,     y,     z+h );
         glEnd();
 
-        /// Рисуване на парче от основата
+
         glBegin( GL_POLYGON );
             glNormal3f( 0, 0, -1 );
             glVertex3f( x,     y,     z );
@@ -457,7 +457,7 @@ void drawPine ( float x, float y, float z, float r, float h )
         float cosbeta = h/sqrt(h*h+r*r);
         float sinbeta = r/sqrt(h*h+r*r);
 
-        /// Рисуване на околна стена
+
         glBegin( GL_POLYGON );
             glNormal3f( cos(alpha)*cosbeta, sin(alpha)*cosbeta, sinbeta );
             glColor3ub(0,50,0);
