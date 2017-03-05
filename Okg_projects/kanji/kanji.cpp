@@ -131,7 +131,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
     ay = ay/2;
     az = az/2;
 
-    // Рисуване на стена откъм -X
+    // Wall towards -X
     glBegin( GL_POLYGON );
         glNormal3f(-1.0, 0.0, 0.0);
         glVertex3f(x-ax, y-ay, z-az);
@@ -140,7 +140,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
         glVertex3f(x-ax, y+ay, z-az);
     glEnd();
 
-    // Рисуване на стена откъм +X
+    // Wall towards +X
     glBegin( GL_POLYGON );
         glNormal3f(+1.0, 0.0, 0.0);
         glVertex3f(x+ax, y-ay, z-az);
@@ -149,7 +149,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
         glVertex3f(x+ax, y+ay, z-az);
     glEnd();
 
-    // Рисуване на стена откъм -Y
+    // Wall towards-Y
     glBegin( GL_POLYGON );
         glNormal3f(0.0, -1.0, 0.0);
         glVertex3f(x-ax, y-ay, z-az);
@@ -158,7 +158,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
         glVertex3f(x+ax, y-ay, z-az);
     glEnd();
 
-    // Рисуване на стена откъм +Y
+    // Wall towards +Y
     glBegin( GL_POLYGON );
         glNormal3f(0.0, +1.0, 0.0);
         glVertex3f(x-ax, y+ay, z-az);
@@ -167,7 +167,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
         glVertex3f(x+ax, y+ay, z-az);
     glEnd();
 
-    // Рисуване на стена откъм -Z
+    // Wall towards-Z
     glBegin( GL_POLYGON );
         glNormal3f(0.0, 0.0, -1.0);
         glVertex3f(x-ax, y-ay, z-az);
@@ -176,7 +176,7 @@ void drawSolidParalelogram (float x,float y,float z,float ax,float ay,float az)
         glVertex3f(x+ax, y-ay, z-az);
     glEnd();
 
-    // Рисуване на стена откъм +Z
+    // Wall towards +Z
     glBegin( GL_POLYGON );
         glNormal3f(0.0, 0.0, +1.0);
         glVertex3f(x-ax, y-ay, z+az);
